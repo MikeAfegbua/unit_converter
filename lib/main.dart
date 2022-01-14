@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'home_screen.dart';
 import 'screens/currency.dart';
 import 'screens/weight.dart';
+import 'screens/lenght.dart';
 
 void main() => runApp(const MyApp());
 
@@ -17,10 +17,11 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blueGrey,
         canvasColor: Colors.blueGrey, //changes the drawer background color
       ),
-      home: const Calculator(),
+      home: const Currency(),
       routes: {
         Currency.id: (context) => const Currency(),
         Weight.id: (context) => const Weight(),
+        Length.id: (context) => const Length(),
       },
     );
   }

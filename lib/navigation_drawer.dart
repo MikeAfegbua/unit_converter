@@ -3,6 +3,7 @@ import 'components/drawer_head.dart';
 import 'components/drawer_list_tile.dart';
 import 'screens/currency.dart';
 import 'screens/weight.dart';
+import 'screens/lenght.dart';
 
 class NavigationDrawer extends StatefulWidget {
   const NavigationDrawer({Key? key}) : super(key: key);
@@ -28,10 +29,12 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
                   Currency.id,
                 );
               }),
-          const ListTiles(
+          ListTiles(
             listTileName: 'Length',
             myIconName: Icons.maximize,
-            myNavRoute: null,
+            myNavRoute: () {
+              Navigator.pushNamed(context, Length.id);
+            },
           ),
           ListTiles(
               listTileName: 'Weight',

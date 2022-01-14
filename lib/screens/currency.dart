@@ -13,12 +13,15 @@ class _CurrencyState extends State<Currency> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey[800],
       appBar: AppBar(
         title: const Text('Currency'),
       ),
       drawer: const NavigationDrawer(),
       body: const Center(
-        child: Text('Currency Page'),
+        child: Image(
+          image: AssetImage('assets/drawer_image.png'),
+        ),
       ),
     );
   }

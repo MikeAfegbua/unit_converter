@@ -16,6 +16,7 @@ class _WeightState extends State<Weight> {
       appBar: AppBar(
         title: const Text('Weight'),
       ),
+      backgroundColor: Colors.grey[800],
       drawer: const NavigationDrawer(),
       body: const Center(
         child: Text('Weight Page'),
