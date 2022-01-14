@@ -24,7 +24,7 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
               listTileName: 'Currency',
               myIconName: Icons.change_circle_outlined,
               myNavRoute: () {
-                Navigator.pushNamed(
+                Navigator.pushReplacementNamed(
                   context,
                   Currency.id,
                 );
@@ -33,14 +33,14 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
             listTileName: 'Length',
             myIconName: Icons.maximize,
             myNavRoute: () {
-              Navigator.pushNamed(context, Length.id);
+              Navigator.pushReplacementNamed(context, Length.id);
             },
           ),
           ListTiles(
               listTileName: 'Weight',
               myIconName: Icons.table_chart,
               myNavRoute: () {
-                Navigator.pushNamed(
+                Navigator.pushReplacementNamed(
                   context,
                   Weight.id,
                 );
