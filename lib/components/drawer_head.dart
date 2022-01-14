@@ -48,7 +48,7 @@ class _DrawerHeadState extends State<DrawerHead> {
             bottom: 12.0,
             left: 16.0,
             child: Text(
-              "Welcome to Flutter",
+              "My Converter",
               style: TextStyle(
                   color: Colors.white,
                   fontSize: 20.0,

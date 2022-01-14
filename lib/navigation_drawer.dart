@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'components/drawer_head.dart';
+import 'components/drawer_list_tile.dart';
+import 'screens/currency.dart';
+import 'screens/weight.dart';
 
 class NavigationDrawer extends StatefulWidget {
   const NavigationDrawer({Key? key}) : super(key: key);
@@ -16,10 +19,29 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
         padding: EdgeInsets.zero,
         children: [
           const DrawerHead(),
-          ListTile(
-            title: const Text('App version 1.0.0'),
-            onTap: () {},
+          ListTiles(
+              listTileName: 'Currency',
+              myIconName: Icons.change_circle_outlined,
+              myNavRoute: () {
+                Navigator.pushNamed(
+                  context,
+                  Currency.id,
+                );
+              }),
+          const ListTiles(
+            listTileName: 'Length',
+            myIconName: Icons.maximize,
+            myNavRoute: null,
           ),
+          ListTiles(
+              listTileName: 'Weight',
+              myIconName: Icons.table_chart,
+              myNavRoute: () {
+                Navigator.pushNamed(
+                  context,
+                  Weight.id,
+                );
+              }),
         ],
       ),
     );
