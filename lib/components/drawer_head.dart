@@ -11,6 +11,7 @@ class DrawerHead extends StatefulWidget {
 
 class _DrawerHeadState extends State<DrawerHead> {
   bool val = false;
+
   @override
   Widget build(BuildContext context) {
     return DrawerHeader(
@@ -30,8 +31,9 @@ class _DrawerHeadState extends State<DrawerHead> {
             child: Switch(
               value: val,
               onChanged: (newVal) {
-                Provider.of<ThemeManager>(context, listen: false).getVal =
+                Provider.of<ThemeManager>(context, listen: false).setVal =
                     !Provider.of<ThemeManager>(context, listen: false).getVal;
+
                 setState(() {
                   val = newVal;
                 });

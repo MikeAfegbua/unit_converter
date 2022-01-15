@@ -5,7 +5,7 @@ class ThemeManager extends ChangeNotifier {
 
   bool get getVal => _val;
 
-  set getVal(bool value) {
+  set setVal(bool value) {
     _val = value;
     notifyListeners();
   }

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'screens/currency.dart';
 import 'screens/weight.dart';
 import 'screens/lenght.dart';
-import 'theme.dart';
+import 'components/theme.dart';
 import 'package:provider/provider.dart';
 import 'components/theme_manager.dart';
 
@@ -26,13 +26,11 @@ class _MyAppState extends State<MyApp> {
             title: 'Flutter App',
             debugShowCheckedModeBanner: false,
             theme: CalculatorTheme.theme(themeref.getVal),
-
-            //  ThemeData(
-            //   primarySwatch: Colors.blueGrey,
-            //   canvasColor:
-            //       Colors.blueGrey, //changes the drawer background color
-            // ),
-            home: const Currency(),
+            home: const Scaffold(
+              body: SafeArea(
+                child: Currency(),
+              ),
+            ),
             routes: {
               Currency.id: (context) => const Currency(),
               Weight.id: (context) => const Weight(),

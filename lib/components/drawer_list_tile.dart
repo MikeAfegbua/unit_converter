@@ -16,7 +16,6 @@ class ListTiles extends StatelessWidget {
     return ListTile(
       title: Text(
         listTileName,
-        //style: CalculatorTheme.lightTextTheme.headline2,
       ),
       minLeadingWidth: 50,
       leading: Icon(
@@ -24,6 +23,7 @@ class ListTiles extends StatelessWidget {
         size: 30.0,
       ),
       onTap: myNavRoute,
+      selectedTileColor: Colors.green,
     );
   }
 }
