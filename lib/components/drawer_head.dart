@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:phone_calculator/components/theme_manager.dart';
+import 'package:provider/provider.dart';
 
 class DrawerHead extends StatefulWidget {
   const DrawerHead({Key? key}) : super(key: key);
@@ -26,12 +28,14 @@ class _DrawerHeadState extends State<DrawerHead> {
             top: 40.0,
             right: 10.0,
             child: Switch(
+              value: val,
               onChanged: (newVal) {
+                Provider.of<ThemeManager>(context, listen: false).getVal =
+                    !Provider.of<ThemeManager>(context, listen: false).getVal;
                 setState(() {
                   val = newVal;
                 });
               },
-              value: val,
             ),
           ),
           const Positioned(
@@ -49,10 +53,7 @@ class _DrawerHeadState extends State<DrawerHead> {
             left: 16.0,
             child: Text(
               "My Converter",
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20.0,
-                  fontWeight: FontWeight.w500),
+              //style: CalculatorTheme.lightTextTheme.headline2,
             ),
           ),
         ],

@@ -4,8 +4,8 @@ import 'package:google_fonts/google_fonts.dart';
 class CalculatorTheme {
   static TextTheme lightTextTheme = TextTheme(
     bodyText1: GoogleFonts.openSans(
-      fontSize: 14.0,
-      fontWeight: FontWeight.w700,
+      fontSize: 20.0,
+      fontWeight: FontWeight.w500,
       color: Colors.black,
     ),
     headline1: GoogleFonts.openSans(
@@ -15,89 +15,53 @@ class CalculatorTheme {
     ),
     headline2: GoogleFonts.openSans(
       fontSize: 21.0,
-      fontWeight: FontWeight.w700,
-      color: Colors.black,
-    ),
-    headline3: GoogleFonts.openSans(
-      fontSize: 16.0,
-      fontWeight: FontWeight.w600,
-      color: Colors.black,
-    ),
-    headline6: GoogleFonts.openSans(
-      fontSize: 20.0,
-      fontWeight: FontWeight.w600,
+      fontWeight: FontWeight.w400,
       color: Colors.black,
     ),
   );
 
   static TextTheme darkTextTheme = TextTheme(
     bodyText1: GoogleFonts.openSans(
-      fontSize: 14.0,
-      fontWeight: FontWeight.w700,
+      fontSize: 20.0,
+      fontWeight: FontWeight.w500,
       color: Colors.white,
     ),
     headline1: GoogleFonts.openSans(
-      fontSize: 32.0,
+      fontSize: 10.0,
       fontWeight: FontWeight.bold,
       color: Colors.white,
     ),
     headline2: GoogleFonts.openSans(
-      fontSize: 21.0,
-      fontWeight: FontWeight.w700,
-      color: Colors.white,
-    ),
-    headline3: GoogleFonts.openSans(
-      fontSize: 16.0,
-      fontWeight: FontWeight.w600,
-      color: Colors.white,
-    ),
-    headline6: GoogleFonts.openSans(
-      fontSize: 20.0,
-      fontWeight: FontWeight.w600,
+      fontSize: 25.0,
+      fontWeight: FontWeight.w200,
       color: Colors.white,
     ),
   );
 
-  static ThemeData light() {
+  static ThemeData theme(bool isDarkTheme) {
     return ThemeData(
-      brightness: Brightness.light,
-      checkboxTheme: CheckboxThemeData(
-        fillColor: MaterialStateColor.resolveWith(
-          (states) {
-            return Colors.black;
-          },
+      brightness: isDarkTheme ? Brightness.dark : Brightness.light,
+      scaffoldBackgroundColor:
+          isDarkTheme ? Colors.grey[800] : Colors.lightBlue[50],
+      listTileTheme: ListTileThemeData(
+        textColor: isDarkTheme ? Colors.white : Colors.black,
+      ),
+      appBarTheme: AppBarTheme(
+        backgroundColor: isDarkTheme ? Colors.grey[800] : Colors.lightBlue[50],
+        iconTheme: IconThemeData(
+          color: isDarkTheme ? Colors.white : Colors.black,
+        ),
+        titleTextStyle: TextStyle(
+          fontSize: 22,
+          color: isDarkTheme ? Colors.white : Colors.black,
         ),
       ),
-      appBarTheme: const AppBarTheme(
-        foregroundColor: Colors.black,
-        backgroundColor: Colors.white,
+      drawerTheme: DrawerThemeData(
+        backgroundColor: isDarkTheme ? Colors.grey[800] : Colors.lightBlue[50],
       ),
-      floatingActionButtonTheme: const FloatingActionButtonThemeData(
-        foregroundColor: Colors.white,
-        backgroundColor: Colors.black,
-      ),
-      bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-        selectedItemColor: Colors.green,
-      ),
-      textTheme: lightTextTheme,
-    );
-  }
-
-  static ThemeData dark() {
-    return ThemeData(
-      brightness: Brightness.dark,
-      appBarTheme: AppBarTheme(
-        foregroundColor: Colors.white,
-        backgroundColor: Colors.grey[900],
-      ),
-      floatingActionButtonTheme: const FloatingActionButtonThemeData(
-        foregroundColor: Colors.white,
-        backgroundColor: Colors.green,
-      ),
-      bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-        selectedItemColor: Colors.green,
-      ),
-      textTheme: darkTextTheme,
+      iconTheme: IconThemeData(
+          color: isDarkTheme ? Colors.lightBlue[50] : Colors.grey[800]),
+      textTheme: isDarkTheme ? darkTextTheme : lightTextTheme,
     );
   }
 }

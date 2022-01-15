@@ -45,6 +45,33 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
                   Weight.id,
                 );
               }),
+          ListTiles(
+              listTileName: 'Weight',
+              myIconName: Icons.table_chart,
+              myNavRoute: () {
+                Navigator.pushReplacementNamed(
+                  context,
+                  Weight.id,
+                );
+              }),
+          ListTiles(
+              listTileName: 'Weight',
+              myIconName: Icons.table_chart,
+              myNavRoute: () {
+                Navigator.pushReplacementNamed(
+                  context,
+                  Weight.id,
+                );
+              }),
+          ListTiles(
+              listTileName: 'Weight',
+              myIconName: Icons.table_chart,
+              myNavRoute: () {
+                Navigator.pushReplacementNamed(
+                  context,
+                  Weight.id,
+                );
+              }),
         ],
       ),
     );

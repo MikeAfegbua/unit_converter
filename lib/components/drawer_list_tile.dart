@@ -16,14 +16,11 @@ class ListTiles extends StatelessWidget {
     return ListTile(
       title: Text(
         listTileName,
-        style: const TextStyle(
-          fontSize: 20.0,
-          color: Colors.white,
-        ),
+        //style: CalculatorTheme.lightTextTheme.headline2,
       ),
+      minLeadingWidth: 50,
       leading: Icon(
         myIconName,
-        color: Colors.white,
         size: 30.0,
       ),
       onTap: myNavRoute,
