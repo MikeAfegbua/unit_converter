@@ -17,6 +17,8 @@ class ListTiles extends StatelessWidget {
       title: Text(
         listTileName,
       ),
+      selected: false,
+      //tileColor: ,
       minLeadingWidth: 50,
       leading: Icon(
         myIconName,

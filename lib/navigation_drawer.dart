@@ -46,21 +46,21 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
                 );
               }),
           ListTiles(
-              listTileName: 'Weight',
-              myIconName: Icons.table_chart,
+              listTileName: 'Currency',
+              myIconName: Icons.change_circle_outlined,
               myNavRoute: () {
                 Navigator.pushReplacementNamed(
                   context,
-                  Weight.id,
+                  Currency.id,
                 );
               }),
           ListTiles(
-              listTileName: 'Weight',
-              myIconName: Icons.table_chart,
+              listTileName: 'Length',
+              myIconName: Icons.maximize,
               myNavRoute: () {
                 Navigator.pushReplacementNamed(
                   context,
-                  Weight.id,
+                  Length.id,
                 );
               }),
           ListTiles(

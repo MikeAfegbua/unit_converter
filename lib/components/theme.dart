@@ -42,7 +42,7 @@ class CalculatorTheme {
     return ThemeData(
       brightness: isDarkTheme ? Brightness.dark : Brightness.light,
       scaffoldBackgroundColor:
-          isDarkTheme ? Colors.grey[800] : Colors.lightBlue[50],
+          isDarkTheme ? Colors.black : Colors.lightBlue[50],
       listTileTheme: ListTileThemeData(
         textColor: isDarkTheme ? Colors.white : Colors.black,
       ),

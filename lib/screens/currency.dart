@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:phone_calculator/navigation_drawer.dart';
+import 'package:phone_calculator/components/custom_button.dart';
 
 class Currency extends StatefulWidget {
   const Currency({Key? key}) : super(key: key);
@@ -10,6 +11,43 @@ class Currency extends StatefulWidget {
 }
 
 class _CurrencyState extends State<Currency> {
+  late TextEditingController myNairaC;
+  late TextEditingController myDollarC;
+
+  List<String> myVal = [
+    '7',
+    '8',
+    '9',
+    'del',
+    '4',
+    '5',
+    '6',
+    'C',
+    '1',
+    '2',
+    '3',
+    '.',
+    '<',
+    '0',
+    '>',
+    ','
+  ];
+  @override
+  void initState() {
+    super.initState();
+    myNairaC = TextEditingController(text: '');
+    myDollarC = TextEditingController(text: '');
+  }
+
+  void myListener() {}
+
+  @override
+  void dispose() {
+    myNairaC.dispose();
+    myDollarC.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,9 +61,10 @@ class _CurrencyState extends State<Currency> {
             padding: EdgeInsets.only(
               right: 180.0,
               top: 20.0,
+              bottom: 10,
             ),
             child: Text(
-              'Naira   [NGR]',
+              '  [NGR]',
               textAlign: TextAlign.left,
               style: TextStyle(
                 fontSize: 20,
@@ -33,16 +72,22 @@ class _CurrencyState extends State<Currency> {
               ),
             ),
           ),
-          const TextField(
-            keyboardType: TextInputType.numberWithOptions(),
+          TextField(
+            style: const TextStyle(
+              fontSize: 30,
+            ),
+            controller: myNairaC,
+            keyboardType: TextInputType.none,
+            cursorHeight: 30,
           ),
           const Padding(
             padding: EdgeInsets.only(
               left: 180.0,
               top: 20.0,
+              bottom: 10,
             ),
             child: Text(
-              'Dollar   [USD]',
+              '   [USD]',
               textAlign: TextAlign.left,
               style: TextStyle(
                 fontSize: 20,
@@ -50,35 +95,60 @@ class _CurrencyState extends State<Currency> {
               ),
             ),
           ),
-          const TextField(
-            keyboardType: TextInputType.numberWithOptions(),
-          ),
-          const Padding(
-            padding: EdgeInsets.only(top: 30, left: 250),
-            child: Icon(
-              Icons.arrow_back_sharp,
+          TextField(
+            style: const TextStyle(
+              fontSize: 30,
             ),
+            controller: myDollarC,
+            keyboardType: TextInputType.none,
           ),
+          const SizedBox(height: 50, width: 20),
           Expanded(
-              child: GridView.count(
-            crossAxisCount: 4,
-            crossAxisSpacing: 10.0,
-            mainAxisSpacing: 10.0,
-            shrinkWrap: true,
-            children: List.generate(
-              16,
-              (index) {
-                return Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Container(
-                    color: Colors.red,
-                    height: 10,
-                    width: 10,
-                  ),
-                );
-              },
-            ),
-          ))
+            child: GridView.builder(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 4,
+                  mainAxisSpacing: 5,
+                  crossAxisSpacing: 5,
+                ),
+                itemCount: myVal.length,
+                itemBuilder: (context, int index) {
+                  return MyButton(
+                      tap: () {
+                        if (index == 0 ||
+                            index == 1 ||
+                            index == 2 ||
+                            index == 4 ||
+                            index == 5 ||
+                            index == 6 ||
+                            index == 8 ||
+                            index == 9 ||
+                            index == 10 ||
+                            index == 13) {
+                          myNairaC.text += myVal[index];
+                          myNairaC.selection = TextSelection.fromPosition(
+                            TextPosition(offset: myNairaC.text.length),
+                          );
+                          var a = double.parse(myNairaC.text) / 500;
+                          myDollarC.text = a.toString();
+                          myDollarC.selection = TextSelection.fromPosition(
+                            TextPosition(offset: myDollarC.text.length),
+                          );
+                        } else if (index == 3) {
+                          if (!(myNairaC.text == '')) {
+                            List<String> c = myNairaC.text.split("");
+                            c.removeLast();
+                            myNairaC.text = c.join();
+                          }
+                        } else if (index == 7) {
+                          myDollarC.clear();
+                          myNairaC.clear();
+                        } else {
+                          null;
+                        }
+                      },
+                      texts: myVal[index]);
+                }),
+          ),
         ],
       ),
     );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:phone_calculator/screens/settings.dart';
 import 'screens/currency.dart';
 import 'screens/weight.dart';
 import 'screens/lenght.dart';
@@ -35,6 +36,7 @@ class _MyAppState extends State<MyApp> {
               Currency.id: (context) => const Currency(),
               Weight.id: (context) => const Weight(),
               Length.id: (context) => const Length(),
+              SettingsPage.id: (context) => const SettingsPage(),
             },
           );
         },

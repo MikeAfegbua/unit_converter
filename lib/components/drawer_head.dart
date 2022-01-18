@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:phone_calculator/components/theme_manager.dart';
+import 'package:phone_calculator/screens/settings.dart';
 import 'package:provider/provider.dart';
 
 class DrawerHead extends StatefulWidget {
@@ -40,14 +41,19 @@ class _DrawerHeadState extends State<DrawerHead> {
               },
             ),
           ),
-          const Positioned(
+          Positioned(
             top: 100.0,
             right: 20.0,
             child: IconButton(
               iconSize: 30.0,
-              color: Colors.green,
-              icon: Icon(Icons.settings),
-              onPressed: null,
+              color: Colors.grey[800],
+              icon: const Icon(Icons.settings),
+              onPressed: () {
+                Navigator.pushNamed(
+                  context,
+                  SettingsPage.id,
+                );
+              },
             ),
           ),
           const Positioned(
